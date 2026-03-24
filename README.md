@@ -36,14 +36,15 @@ This project is part of an Erasmus university assignment focused on operating sy
 studyhub-gui
 │
 ├── app
-│ ├── main.py # Main GUI application
-│ ├── task_manager.py # Task logic and operations
-│ ├── storage.py # JSON data handling
-│ └── data
-│ └── tasks.json # Stored tasks
-│
+main.py # Main GUI application
+task_manager.py # Task logic and operations
+storage.py # JSON data handling
+data
+tasks.json # Stored tasks
 ├── README.md
+
 ├── requirements.txt
+
 └── .gitignore
 
 
