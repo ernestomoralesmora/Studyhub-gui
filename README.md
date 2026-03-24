@@ -26,7 +26,7 @@ This project is part of an Erasmus university assignment focused on operating sy
 
 ## Application Preview
 
-*(You can add a screenshot here later)*
+
 
 ![App Screenshot](screenshots/screenshot.png)
 
