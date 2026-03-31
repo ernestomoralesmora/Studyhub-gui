@@ -115,7 +115,7 @@ docker run -it \
 
 This allows the Tkinter graphical interface to be displayed from inside the container while preserving the task data in the local app/data folder.
 
-```bash
+
 ## Future Work
 - Snap package creation
 - Integration into an Ubuntu Core image for Raspberry Pi 5
