@@ -94,12 +94,31 @@ Tkinter may need to be installed separately on Linux:
 - Tasks are automatically sorted by priority:
   - High → Medium → Low
 
----
+
+## Docker
+
+The application can also be executed inside a Docker container.
+
+
+
+```bash
+docker build -t studyhub-gui .
+xhost +local:
+
+#Run the Docker container
+docker run -it \
+  --rm \
+  --net=host \
+  -e DISPLAY=$DISPLAY \
+  -e XAUTHORITY=$XAUTHORITY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v $XAUTHORITY:$XAUTHORITY \
+  -v $(pwd)/app/data:/app/data \
+  studyhub-gui
+
+
+This allows the Tkinter graphical interface to be displayed from inside the container while preserving the task data in the local app/data folder.
 
 ## Future Work
-
-This project will be extended with:
-
-- Docker containerization
 - Snap package creation
 - Integration into an Ubuntu Core image for Raspberry Pi 5
