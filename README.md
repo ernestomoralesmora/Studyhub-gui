@@ -112,6 +112,8 @@ docker run -it \
   -v $XAUTHORITY:$XAUTHORITY \
   -v $(pwd)/app/data:/app/data \
   studyhub-gui
+  ```markdown
+
 
 This allows the Tkinter graphical interface to be displayed from inside the container while preserving the task data in the local app/data folder.
 
