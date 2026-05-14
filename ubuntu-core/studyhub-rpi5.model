@@ -1,0 +1,28 @@
+{
+  "type": "model",
+  "series": "16",
+  "model": "studyhub-rpi5",
+  "architecture": "arm64",
+  "base": "core24",
+  "grade": "dangerous",
+  "snaps": [
+    {
+      "name": "pi",
+      "type": "gadget",
+      "default-channel": "24/stable"
+    },
+    {
+      "name": "pi-kernel",
+      "type": "kernel",
+      "default-channel": "24/stable"
+    },
+    {
+      "name": "core24",
+      "type": "base"
+    },
+    {
+      "name": "studyhub-gui",
+      "type": "app"
+    }
+  ]
+}
