@@ -135,11 +135,12 @@ sudo snap install studyhub-gui_1.0_amd64.snap --devmode
 
 Run the application:
 snap run studyhub-gui
+```
 
 ## Ubuntu Core Integration
 
 The project includes an Ubuntu Core integration folder prepared for Raspberry Pi 5.
-
+```bash
 This folder contains:
 
 - `studyhub-rpi5.model`: model file for Ubuntu Core
@@ -151,5 +152,5 @@ At this stage, the final Ubuntu Core image generation requires:
 - a signed model assertion
 - an ARM64 Snap package for Raspberry Pi 5
 - testing on Raspberry Pi 5 hardware
-
+```
 The integration structure has been prepared following the Ubuntu Core workflow.
