@@ -118,6 +118,38 @@ docker run -it \
 This allows the Tkinter graphical interface to be displayed from inside the container while preserving the task data in the local app/data folder.
 
 
-## Future Work
-- Snap package creation
-- Integration into an Ubuntu Core image for Raspberry Pi 5
+# Snap
+
+Build the Snap package:
+
+```bash
+snapcraft pack
+
+I had some issues with the isolated build environment and the network, so I used this:
+
+sudo snapcraft pack --destructive-mode
+
+Install the package:
+sudo snap install studyhub-gui_1.0_amd64.snap --devmode
+
+
+Run the application:
+snap run studyhub-gui
+
+## Ubuntu Core Integration
+
+The project includes an Ubuntu Core integration folder prepared for Raspberry Pi 5.
+
+This folder contains:
+
+- `studyhub-rpi5.model`: model file for Ubuntu Core
+- `build-image.sh`: script prepared to generate the image with `ubuntu-image`
+- `README.md`: documentation about the Ubuntu Core integration process
+
+At this stage, the final Ubuntu Core image generation requires:
+
+- a signed model assertion
+- an ARM64 Snap package for Raspberry Pi 5
+- testing on Raspberry Pi 5 hardware
+
+The integration structure has been prepared following the Ubuntu Core workflow.

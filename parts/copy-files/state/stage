@@ -1,0 +1,86 @@
+backstage_directories: !!set {}
+backstage_files: !!set {}
+directories: !!set
+  bin: null
+  bin/app: null
+  bin/app/__pycache__: null
+  bin/app/data: null
+  screenshots: null
+  snap: null
+files: !!set
+  Dockerfile: null
+  README.md: null
+  bin/app/__pycache__/storage.cpython-312.pyc: null
+  bin/app/__pycache__/task_manager.cpython-312.pyc: null
+  bin/app/data/tasks.json: null
+  bin/app/main.py: null
+  bin/app/storage.py: null
+  bin/app/task_manager.py: null
+  bin/launcher.sh: null
+  requirements.txt: null
+  screenshots/screenshot.png: null
+  snap/snapcraft.yaml: null
+overlay_hash: 7aa85bcaf87513fd995e6920c8b7bc5cef9483de
+part_properties:
+  after: []
+  build-attributes: []
+  build-environment:
+  - SNAPCRAFT_GNOME_SDK: /snap/gnome-46-2404-sdk/current/
+  - PATH: /snap/gnome-46-2404-sdk/current/usr/bin${PATH:+:$PATH}
+  - XDG_DATA_DIRS: /home/ernesto_7/Escritorio/studyhub-gui/stage/usr/share:/snap/gnome-46-2404-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+  - LD_LIBRARY_PATH: /snap/gnome-46-2404-sdk/current/lib/x86_64-linux-gnu:/snap/gnome-46-2404-sdk/current/usr/lib/x86_64-linux-gnu:/snap/gnome-46-2404-sdk/current/usr/lib:/snap/gnome-46-2404-sdk/current/usr/lib/vala-current:/snap/gnome-46-2404-sdk/current/usr/lib/x86_64-linux-gnu/pulseaudio${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  - PKG_CONFIG_PATH: /snap/gnome-46-2404-sdk/current/usr/lib/x86_64-linux-gnu/pkgconfig:/snap/gnome-46-2404-sdk/current/usr/lib/pkgconfig:/snap/gnome-46-2404-sdk/current/usr/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+  - GETTEXTDATADIRS: /snap/gnome-46-2404-sdk/current/usr/share/gettext-current${GETTEXTDATADIRS:+:$GETTEXTDATADIRS}
+  - GDK_PIXBUF_MODULE_FILE: /snap/gnome-46-2404-sdk/current/usr/lib/x86_64-linux-gnu/gdk-pixbuf-current/loaders.cache
+  - ACLOCAL_PATH: /snap/gnome-46-2404-sdk/current/usr/share/aclocal${ACLOCAL_PATH:+:$ACLOCAL_PATH}
+  - PYTHONPATH: /snap/gnome-46-2404-sdk/current/usr/lib/python3.10:/snap/gnome-46-2404-sdk/current/usr/lib/python3/dist-packages:/snap/gnome-46-2404-sdk/current/usr/lib/x86_64-linux-gnu/gobject-introspection${PYTHONPATH:+:$PYTHONPATH}
+  - GI_TYPELIB_PATH: /snap/gnome-46-2404-sdk/current/usr/lib/girepository-1.0:/snap/gnome-46-2404-sdk/current/usr/lib/x86_64-linux-gnu/girepository-1.0${GI_TYPELIB_PATH:+:$GI_TYPELIB_PATH}
+  - CMAKE_PREFIX_PATH: /home/ernesto_7/Escritorio/studyhub-gui/stage/usr:/snap/gnome-46-2404-sdk/current/usr${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}
+  build-packages: []
+  build-snaps: []
+  disable-parallel: false
+  organize:
+    app: bin/app/
+    launcher.sh: bin/launcher.sh
+  overlay:
+  - '*'
+  overlay-packages: []
+  overlay-script: null
+  override-build: null
+  override-prime: null
+  override-pull: null
+  override-stage: null
+  permissions: []
+  plugin: dump
+  prime:
+  - '*'
+  source: .
+  source-branch: ''
+  source-channel: null
+  source-checksum: ''
+  source-commit: ''
+  source-depth: 0
+  source-subdir: ''
+  source-submodules: null
+  source-tag: ''
+  source-type: ''
+  stage:
+  - '*'
+  stage-packages: []
+  stage-snaps: []
+partition: default
+partitions_contents: {}
+project_options:
+  application_name: snapcraft
+  arch_triplet: x86_64-linux-gnu
+  project_vars:
+    grade:
+      part_name: null
+      updated: false
+      value: devel
+    version:
+      part_name: null
+      updated: false
+      value: '1.0'
+  project_vars_part_name: null
+  target_arch: amd64

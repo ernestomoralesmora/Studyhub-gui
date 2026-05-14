@@ -1,0 +1,36 @@
+name: studyhub-gui
+base: core24
+version: '1.0'
+summary: StudyHub Task Manager
+description: |
+  Snap package for a Python Tkinter task manager application.
+
+grade: devel
+confinement: devmode
+
+parts:
+  app-python:
+    plugin: python
+    source: .
+    build-packages:
+      - python3-tk
+    stage-packages:
+      - python3-tk
+
+  copy-files:
+    plugin: dump
+    source: .
+    organize:
+      app: bin/app/
+      launcher.sh: bin/launcher.sh
+
+apps:
+  studyhub-gui:
+    command: bin/launcher.sh
+    extensions: [gnome]
+    plugs:
+      - desktop
+      - desktop-legacy
+      - x11
+      - wayland
+      - home
