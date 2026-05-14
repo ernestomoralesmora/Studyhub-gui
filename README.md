@@ -1,108 +1,144 @@
 # StudyHub Task Manager
 
-StudyHub Task Manager is a desktop application developed in Python using Tkinter.  
-It provides a simple and visual way to manage daily tasks with priorities and completion status.
+StudyHub Task Manager is a desktop task management application developed in Python using Tkinter.
 
-This project is part of an Erasmus university assignment focused on operating systems, where the application will later be extended with Docker, Snap packaging, and Ubuntu Core integration.
+The application allows users to create, organize, and manage daily tasks through a simple graphical interface with priority levels and completion tracking.
+
+This project was developed as part of an Erasmus university assignment related to Operating Systems, Docker containerization, Snap packaging, and Ubuntu Core integration.
 
 ---
 
-## Features
+# Features
 
-- Add tasks with different priority levels (Low, Medium, High)
+- Add tasks with priority levels:
+  - High
+  - Medium
+  - Low
+
 - Mark tasks as completed or undo completion
 - Delete tasks
-- Automatic data persistence using a JSON file
-- Color-coded tasks based on priority:
-  - 🔴 High priority
-  - 🟠 Medium priority
-  - 🟢 Low priority
-- Visual indication of completed tasks
-- Task counter (total tasks and completed tasks)
-- Clean and user-friendly graphical interface
+- Automatic task persistence using JSON
+- Dynamic task counters
 - Scrollable task list
+- Priority-based color system:
+  - 🔴 High
+  - 🟠 Medium
+  - 🟢 Low
+- User-friendly graphical interface
+- Automatic task sorting by priority
 
 ---
 
-## Application Preview
+# Application Preview
 
-
-
-![App Screenshot](screenshots/screenshot.png)
+![Application Screenshot](screenshots/screenshot.png)
 
 ---
 
-## Project Structure
-studyhub-gui
+# Project Structure
+
+```text
+studyhub-gui/
 │
-├── app
-
-main.py # Main GUI application
-
-task_manager.py # Task logic and operations
-
-storage.py # JSON data handling
-
-data
-
-tasks.json # Stored tasks
-
-├── README.md
-
+├── app/
+│   ├── main.py
+│   ├── task_manager.py
+│   ├── storage.py
+│   └── data/
+│       └── tasks.json
+│
+├── screenshots/
+│   └── screenshot.png
+│
+├── snap/
+│   └── snapcraft.yaml
+│
+├── ubuntu-core/
+│   ├── build-image.sh
+│   ├── studyhub-rpi5.model
+│   └── README.md
+│
+├── Dockerfile
+├── launcher.sh
 ├── requirements.txt
-
-└── .gitignore
-
+├── .gitignore
+└── README.md
+```
 
 ---
 
-## Technologies Used
+# Technologies Used
 
 - Python 3
-- Tkinter (GUI)
-- JSON (data persistence)
+- Tkinter
+- JSON
+- Docker
+- Snapcraft
+- Ubuntu Core
 
 ---
 
-## Requirements
+# Requirements
 
-Make sure you have Python 3 installed.
+Make sure Python 3 is installed on your system.
 
-Tkinter may need to be installed separately on Linux:
- sudo apt install python3-tk
+Install Tkinter on Ubuntu/Linux:
 
----
-
-## How to Run the Application
-
-1. Navigate to the project folder:
- cd studyhub-gui/app
-
-2. Run the application:
- python3 main.py
+```bash
+sudo apt install python3-tk
+```
 
 ---
 
-## How It Works
+# Running the Application
+
+Navigate to the application folder:
+
+```bash
+cd studyhub-gui/app
+```
+
+Run the application:
+
+```bash
+python3 main.py
+```
+
+---
+
+# How the Application Works
 
 - Tasks are stored locally in a JSON file (`tasks.json`)
 - Each task contains:
-  - Text
+  - Task text
   - Priority
   - Completion status
+
 - The interface updates dynamically after each action
 - Tasks are automatically sorted by priority:
   - High → Medium → Low
 
-## Docker
+---
 
-The application can also be executed inside a Docker container.
+# Docker Support
+
+The application can also run inside a Docker container.
+
+## Build the Docker image
 
 ```bash
 docker build -t studyhub-gui .
-xhost +local:
+```
 
-# Run the Docker container
+## Allow local graphical access
+
+```bash
+xhost +local:
+```
+
+## Run the Docker container
+
+```bash
 docker run -it \
   --rm \
   --net=host \
@@ -112,45 +148,68 @@ docker run -it \
   -v $XAUTHORITY:$XAUTHORITY \
   -v $(pwd)/app/data:/app/data \
   studyhub-gui
-  ```
+```
 
+This configuration allows the Tkinter graphical interface to be displayed from inside the Docker container while preserving task data locally.
 
-This allows the Tkinter graphical interface to be displayed from inside the container while preserving the task data in the local app/data folder.
+---
 
+# Snap Packaging
 
-# Snap
+The project includes Snap packaging support.
 
-Build the Snap package:
+## Build the Snap package
 
 ```bash
 snapcraft pack
+```
 
-I had some issues with the isolated build environment and the network, so I used this:
+In some environments, network and permission restrictions required the use of:
 
+```bash
 sudo snapcraft pack --destructive-mode
+```
 
-Install the package:
+## Install the Snap package
+
+```bash
 sudo snap install studyhub-gui_1.0_amd64.snap --devmode
+```
 
+## Run the Snap application
 
-Run the application:
+```bash
 snap run studyhub-gui
 ```
 
-## Ubuntu Core Integration
+---
 
-The project includes an Ubuntu Core integration folder prepared for Raspberry Pi 5.
-```bash
-This folder contains:
+# Ubuntu Core Integration
 
-- `studyhub-rpi5.model`: model file for Ubuntu Core
-- `build-image.sh`: script prepared to generate the image with `ubuntu-image`
-- `README.md`: documentation about the Ubuntu Core integration process
+The repository also contains a prepared Ubuntu Core integration structure for Raspberry Pi 5.
 
-At this stage, the final Ubuntu Core image generation requires:
+## Included files
 
-- a signed model assertion
-- an ARM64 Snap package for Raspberry Pi 5
-- testing on Raspberry Pi 5 hardware
-```
-The integration structure has been prepared following the Ubuntu Core workflow.
+- `studyhub-rpi5.model`
+- `build-image.sh`
+- `README.md`
+
+## Purpose
+
+The integration structure prepares the project for deployment on Ubuntu Core devices using Snap packages.
+
+At this stage, generating the final Ubuntu Core image requires:
+
+- A signed model assertion
+- An ARM64 Snap package
+- Raspberry Pi 5 hardware testing
+
+The structure and workflow were implemented following the Ubuntu Core documentation and deployment process.
+
+---
+
+# Author
+
+Ernesto Morales Mora
+
+
